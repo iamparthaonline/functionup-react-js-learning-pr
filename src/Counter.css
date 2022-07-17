@@ -1,0 +1,12 @@
+.count-component{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.count-component button{
+    margin: 16px;
+}
+.count-component p { 
+    font-size: 24px;
+}
