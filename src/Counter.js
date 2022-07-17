@@ -27,6 +27,14 @@ class Counter extends React.Component {
     });
   }
 
+  showTypeOfCount() {
+    if (this.state.count % 2 === 0) {
+      return <span id="even"> Even</span>;
+    } else {
+      return <span id="odd"> Odd</span>;
+    }
+  }
+
   render() {
     return (
       <div className="count-component">
@@ -46,6 +54,35 @@ class Counter extends React.Component {
           + Increase
         </button>
         <button onClick={() => this.decreaseCounter()}> - Decrease </button>
+
+        <div className="count-type">
+          {/* {this.state.count % 2 === 1 && <span>Odd</span>}
+          {this.state.count % 2 === 0 && <span>Even</span>} */}
+
+          {/* {this.state.count % 2 === 0 ? (
+            <span> Even </span>
+          ) : (
+            <span> Odd </span>
+          )} */}
+
+          {/* {this.showTypeOfCount()} */}
+
+          <span
+            style={{
+              display: this.state.count % 2 === 0 ? "inline" : "none",
+            }}
+          >
+            Even
+          </span>
+
+          <span
+            style={{
+              display: this.state.count % 2 === 1 ? "inline" : "none",
+            }}
+          >
+            Odd
+          </span>
+        </div>
       </div>
     );
   }

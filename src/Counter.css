@@ -10,3 +10,11 @@
 .count-component p { 
     font-size: 24px;
 }
+
+.count-type span{
+    padding: 5px;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    margin: 20px;
+}

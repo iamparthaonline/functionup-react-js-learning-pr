@@ -5,7 +5,8 @@ import HeadingComponentFunctional from "./HeadingComponentFunctional.js";
 import HeadingComponentUsingClass from "./HeadingComponentUsingClass";
 import "./index.css";
 import Counter from "./Counter";
-
+import List from "./List";
+import FormComponent from "./Form";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const CurrentTIme = () => {
@@ -20,8 +21,10 @@ const CurrentTIme = () => {
 
 root.render(
   <React.StrictMode>
+    <FormComponent />
     <HeadingComponentFunctional title="Hello from COmponent" count="2" />
     <CurrentTIme />
     <Counter />
+    <List />
   </React.StrictMode>
 );
