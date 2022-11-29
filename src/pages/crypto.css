@@ -1,0 +1,28 @@
+.crypto-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.crypto-container ol,
+.crypto-container div {
+    width: 40%;
+    height: 100vh;
+    padding: 50px;
+}
+
+.crypto-container ol {
+    background-color: #eee;
+}
+
+.crypto-container div {
+    background-color: black;
+    color: #fff;
+}
+
+.crypto-container ol li {
+
+    padding: 10px;
+    border: 1px solid;
+    margin: 10px;
+}

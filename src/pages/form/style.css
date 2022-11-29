@@ -1,0 +1,12 @@
+.form-container{
+    margin: 40px;
+    padding: 40px;
+    border: 1px solid #444;
+}
+.result{
+    background-color: #444;
+    padding: 20px;
+    font-size: 20px;
+    color: #fff;
+    margin: 20px;
+}

@@ -1,0 +1,13 @@
+.cat-facts{
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+
+.cat-facts p{
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 10px;
+}
