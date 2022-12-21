@@ -56,10 +56,15 @@ class RegisterForm extends React.Component {
             backgroundColor: "#eee",
           }}
         >
-          <div>
+          <div className="mb-3">
+            <label for="name" className="form-label">
+              Name
+            </label>
             <input
               type="text"
-              placeholder="name"
+              className="form-control"
+              id="name"
+              placeholder="your name"
               value={this.state.name}
               onChange={(e) => {
                 this.setState({
@@ -68,10 +73,15 @@ class RegisterForm extends React.Component {
               }}
             />
           </div>
-          <div>
+          <div className="mb-3">
+            <label for="age" className="form-label">
+              Age
+            </label>
             <input
-              type="number"
-              placeholder="age"
+              type="text"
+              className="form-control"
+              id="age"
+              placeholder="your age"
               value={this.state.age}
               onChange={(e) => {
                 this.setState({
@@ -80,10 +90,16 @@ class RegisterForm extends React.Component {
               }}
             />
           </div>
-          <div>
+
+          <div className="mb-3">
+            <label for="password" className="form-label">
+              password
+            </label>
             <input
               type="password"
-              placeholder="password"
+              className="form-control"
+              id="password"
+              placeholder="your password"
               value={this.state.password}
               onChange={(e) => {
                 this.setState({
@@ -92,9 +108,15 @@ class RegisterForm extends React.Component {
               }}
             />
           </div>
-          <button disabled={this.state.formDisabled} type="submit">
+
+          <button
+            disabled={this.state.formDisabled}
+            type="submit"
+            class="btn btn-primary mb-3"
+          >
             Submit
           </button>
+
           {this.state.formDisabled && (
             <p> Form is being submitted please wait.</p>
           )}
