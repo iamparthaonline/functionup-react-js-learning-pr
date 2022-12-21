@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class RegisterForm extends React.Component {
   constructor() {
@@ -7,32 +8,49 @@ class RegisterForm extends React.Component {
       name: "",
       age: 0,
       password: "",
+      formDisabled: false,
     };
+  }
+  handleFormSubmit(event) {
+    const { name, age, password } = this.state;
+    event.preventDefault();
+    // // login API call
+    // const tempRegistrationData =
+    //   JSON.parse(localStorage.getItem("registrationData")) || [];
+
+    // tempRegistrationData.push({ name, age, password });
+    // localStorage.setItem(
+    //   "registrationData",
+    //   JSON.stringify(tempRegistrationData)
+    // );
+    this.setState({
+      formDisabled: true,
+    });
+    axios
+      .post("https://63a30a829704d18da083fc2c.mockapi.io/react-partha/users", {
+        name,
+        age,
+        password,
+      })
+      .then((response) => {
+        console.log("response", response);
+        this.setState({
+          formDisabled: false,
+        });
+        this.setState({
+          name: "",
+          age: "",
+          password: "",
+        });
+        alert("Registration Successful!");
+      });
   }
   render() {
     return (
       <div>
         <h2>RegisterForm </h2>
         <form
-          onSubmit={(event) => {
-            const { name, age, password } = this.state;
-            event.preventDefault();
-            // login API call
-            const tempRegistrationData =
-              JSON.parse(localStorage.getItem("registrationData")) || [];
-
-            tempRegistrationData.push({ name, age, password });
-            localStorage.setItem(
-              "registrationData",
-              JSON.stringify(tempRegistrationData)
-            );
-            alert("Registration Successful!");
-            this.setState({
-              name: "",
-              age: "",
-              password: "",
-            });
-          }}
+          onSubmit={(event) => this.handleFormSubmit(event)}
           style={{
             padding: "40px",
             backgroundColor: "#eee",
@@ -74,7 +92,12 @@ class RegisterForm extends React.Component {
               }}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button disabled={this.state.formDisabled} type="submit">
+            Submit
+          </button>
+          {this.state.formDisabled && (
+            <p> Form is being submitted please wait.</p>
+          )}
         </form>
         <br />
         <br />
