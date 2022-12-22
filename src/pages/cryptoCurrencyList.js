@@ -61,6 +61,8 @@ const CryptoCurrencyList = () => {
             </ul>
           </div>
         )}
+        <ol></ol>
+        <div className="crypto-table"></div>
       </div>
     </div>
   );

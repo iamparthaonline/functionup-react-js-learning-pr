@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 
 export default function LoginForm() {
   const [name, setName] = useState();
   const [password, setPassword] = useState();
   const [showLogin, setShowLogin] = useState(true);
+  const paramsData = useParams();
+  const [queryParams, setQueryParams] = useSearchParams();
+  console.log("paramsdata --- ", paramsData);
+  console.log("queryParams --- ", queryParams.get("age"));
+  useEffect(() => {
+    console.log("COmponent got changed");
+  });
   return (
     <div
       style={{
