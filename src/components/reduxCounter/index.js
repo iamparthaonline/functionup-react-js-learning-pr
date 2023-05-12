@@ -1,26 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../store";
+
 import "./style.css";
 const SimpleComponent = ({ label }) => {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
   const increment = () => {
-    dispatch({
-      type: "INC",
-    });
+    dispatch(actions.increment());
   };
 
   const decrement = () => {
-    dispatch({
-      type: "DEC",
-    });
+    dispatch(actions.decrement());
   };
 
   const addBy = () => {
-    dispatch({
-      type: "ADD",
-      payload: 10,
-    });
+    dispatch(actions.addBy(100));
   };
 
   return (
