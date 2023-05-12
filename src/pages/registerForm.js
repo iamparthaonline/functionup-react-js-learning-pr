@@ -9,6 +9,7 @@ class RegisterForm extends React.Component {
       age: 0,
       password: "",
       formDisabled: false,
+      error404: false,
     };
   }
   handleFormSubmit(event) {
@@ -26,13 +27,19 @@ class RegisterForm extends React.Component {
     this.setState({
       formDisabled: true,
     });
+    const requestBody = {
+      name,
+      age: age,
+      password,
+    };
     axios
-      .post("https://63a30a829704d18da083fc2c.mockapi.io/react-partha/users", {
-        name,
-        age,
-        password,
-      })
+      .post(
+        "https://63a30a829704d18da083fc2c.mockapi.io/react-partha/users",
+        requestBody
+      )
       .then((response) => {
+        console.log("response", response);
+        localStorage.setItem("token", response.token);
         console.log("response", response);
         this.setState({
           formDisabled: false,
@@ -43,6 +50,12 @@ class RegisterForm extends React.Component {
           password: "",
         });
         alert("Registration Successful!");
+      })
+      .catch((e) => {
+        console.log("error", e);
+        this.setState({
+          error404: true,
+        });
       });
   }
   render() {
@@ -120,6 +133,7 @@ class RegisterForm extends React.Component {
           {this.state.formDisabled && (
             <p> Form is being submitted please wait.</p>
           )}
+          {this.state.error404 && <p>404 API error happened</p>}
         </form>
         <br />
         <br />
